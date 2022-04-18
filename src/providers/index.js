@@ -20,14 +20,14 @@ export const useUsers = () => {
   return { users, loadUsers }
 }
 
-export const useTypes = (request) => {
+export const useTypes = () => {
   const { types, setTypes } = store.useTypes()
 
   const loadTypes = useCallback(async () => {
-    const response = await request.json('http://localhost:3001/types')
+    const response = await fetch('http://localhost:3001/types')
     const types = await response.json()
     setTypes(types)
-  }, [request, setTypes])
+  }, [setTypes])
 
   useEffect(() => {
     // NOTE: types isn't suppossed to change very often, so we load them once

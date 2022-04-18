@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
       <p>
-        <button onClick={loadUsers}>reload</button>
+        <button onClick={loadUsers}>refresh</button>
       </p>
       <table>
         <thead>
