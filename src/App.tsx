@@ -1,9 +1,11 @@
 import { useTypes, useUsers } from './providers'
+import { useRequest } from './libs/request'
 import './App.css'
 
 function App() {
-  const { types } = useTypes()
-  const { users, loadUsers } = useUsers()
+  const { request, loading } = useRequest()
+  const { types } = useTypes(request)
+  const { users, loadUsers } = useUsers(request)
 
   return (
     <div className="table">
@@ -14,7 +16,9 @@ function App() {
             <option key={type.id}>{type.name}</option>
           ))}
         </select>
-        <button onClick={loadUsers}>refresh</button>
+        <button disabled={loading} onClick={loadUsers}>
+          {loading ? 'loading...' : 'refresh'}
+        </button>
       </div>
       <table>
         <thead>
