@@ -1,8 +1,11 @@
 const casual = require('casual')
 
 module.exports = () => {
-  const data = { users: [] }
-  // Create 1000 users
+  const data = {
+    users: [],
+    types: [],
+  }
+
   for (let i = 0; i < 20; i++) {
     data.users.push({
       id: i,
@@ -13,5 +16,13 @@ module.exports = () => {
       profession: casual.title
     })
   }
+
+  for (let i = 0; i < 3; i++) {
+    data.types.push({
+      id: i,
+      name: `Type ${i}`
+    })
+  }
+
   return data
 }
