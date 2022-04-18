@@ -29,7 +29,7 @@ export const useTypes = (request: Request) => {
   }, [setTypes, request])
 
   useEffect(() => {
-    // NOTE: types isn't suppossed to change very often, so we load them once
+    // NOTE: types are not supposed to change very often, so we load them once
     if (!types.length) {
       loadTypes()
     }
