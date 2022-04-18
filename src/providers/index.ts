@@ -9,7 +9,6 @@ export const useUsers = (request: Request) => {
 
   const loadUsers = useCallback(async () => {
     const users = await request('http://localhost:3001/users')
-    // const users = await response.json()
     setUsers(users)
   }, [setUsers, request])
 
@@ -26,7 +25,6 @@ export const useTypes = (request: Request) => {
 
   const loadTypes = useCallback(async () => {
     const types = await request('http://localhost:3001/types')
-    // const types = await response.json()
     setTypes(types)
   }, [setTypes, request])
 

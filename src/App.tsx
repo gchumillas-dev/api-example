@@ -3,7 +3,7 @@ import { useRequest } from './libs/request'
 import './App.css'
 
 function App() {
-  const { request, loading } = useRequest()
+  const { request, loading, error } = useRequest()
   const { types } = useTypes(request)
   const { users, loadUsers } = useUsers(request)
 
@@ -16,6 +16,7 @@ function App() {
             <option key={type.id}>{type.name}</option>
           ))}
         </select>
+        {error ? <span className="error">Something went wrong</span> : null}
         <button disabled={loading} onClick={loadUsers}>
           {loading ? 'loading...' : 'refresh'}
         </button>
