@@ -1,5 +1,6 @@
 import { useCallback } from 'react'
-import { createStore, useSelector, useDispatch } from 'redux'
+import { createStore } from 'redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 export const useUsers = _ => {
   const dispatch = useDispatch()
