@@ -1,12 +1,13 @@
 import { useTypes, useUsers } from './providers'
+import './App.css'
 
 function App() {
   const { types } = useTypes()
   const { users, loadUsers } = useUsers()
 
   return (
-    <div>
-      <p>
+    <div className="table">
+      <div className="header">
         <select>
           <option>Select an option</option>
           {types.map(type => (
@@ -14,7 +15,7 @@ function App() {
           ))}
         </select>
         <button onClick={loadUsers}>refresh</button>
-      </p>
+      </div>
       <table>
         <thead>
           <tr>
