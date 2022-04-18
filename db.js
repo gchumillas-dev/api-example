@@ -9,7 +9,7 @@ module.exports = () => {
   for (let i = 0; i < 20; i++) {
     data.users.push({
       id: i,
-      fistName: casual.first_name,
+      firstName: casual.first_name,
       lastName: casual.last_name,
       age: casual.integer(21, 68),
       email: casual.email,
