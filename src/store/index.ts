@@ -1,14 +1,7 @@
-// NOTE: is this file more Secure, Refactorable or Readable?
-//
-// And if not, why using TypeScript?
 import { useCallback } from 'react'
 import { createStore } from 'redux'
 import { useSelector, useDispatch } from 'react-redux'
 
-// NOTE: Is this type really a User?
-//
-// Or it is just a fragment of arbitrary data?
-// Maybe TypeScript is promoting the use of "premature abstractions".
 export type User = {
   id: string
   firstName: string
@@ -23,10 +16,6 @@ export type Type = {
   name: string
 }
 
-// NOTE: Is this type really worth?
-//
-// I have seen projects with hundreds of types
-// only to fulfill the TypeScript compiler.
 type State = {
   users: User[]
   types: Type[]
