@@ -1,4 +1,4 @@
-A hook approach.
+This example illustrate the use of Hooks to comunicate with an API.
 
 # Stale While Revalidate (SWR)
 
@@ -48,6 +48,10 @@ export const useTypes = (request: Request) => {
 ```
 
 # Loading and Error status
+
+Keeping the user informed of what's going on is very important.
+That's why `useRequest` returns `loading` and `error`.
+
 ```ts
 const { request, loading, error } = useRequest()
 const { types } = useTypes(request)
