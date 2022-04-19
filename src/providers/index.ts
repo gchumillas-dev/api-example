@@ -16,7 +16,6 @@ export const useUsers = (request: Request) => {
     loadUsers()
   }, [loadUsers])
 
-  // NOTE: we also return loadUsers(), so we can refresh the data at any time.
   return { users, loadUsers }
 }
 
@@ -35,5 +34,6 @@ export const useTypes = (request: Request) => {
     }
   }, [types.length, loadTypes])
 
+  // NOTE: We also return loadTypes(), so we can refresh the data at any time.
   return { types, loadTypes }
 }
