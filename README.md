@@ -27,6 +27,9 @@ export const useUsers = (request: Request) => {
 ```
 
 # Cached data
+
+In some cases certain data is not going to change very often, so we load it once and save it into the store.
+
 ```ts
 // File: src/providers/index.ts
 import * as store from '../store'
