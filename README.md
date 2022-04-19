@@ -1,3 +1,60 @@
+A hook approach.
+
+# Stale While Revalidate (SWR)
+
+```ts
+import * as store from '../store'
+
+export const useUsers = (request: Request) => {
+  // Stale While Revalidate (STR).
+  // We use the stored users before requesting new data.
+  const { users, setUsers } = store.useUsers()
+
+  const loadUsers = useCallback(async () => {
+    const users = await request('http://localhost:3001/users')
+    setUsers(users)
+  }, [setUsers, request])
+
+  useEffect(() => {
+    loadUsers()
+  }, [loadUsers])
+
+  return { users, loadUsers }
+}
+```
+
+# Cached data
+```ts
+import * as store from '../store'
+
+export const useTypes = (request: Request) => {
+  const { types, setTypes } = store.useTypes()
+
+  const loadTypes = useCallback(async () => {
+    const types = await request('http://localhost:3001/types')
+    setTypes(types)
+  }, [setTypes, request])
+
+  useEffect(() => {
+    // Types are not supposed to change very often, so we load them once
+    if (!types.length) {
+      loadTypes()
+    }
+  }, [types.length, loadTypes])
+
+  // However, we also return loadTypes(), so we can refresh the data at any time.
+  return { types, loadTypes }
+}
+```
+
+# Loading and Error status
+```ts
+const { request, loading, error } = useRequest()
+const { types } = useTypes(request)
+const { users, loadUsers } = useUsers(request)
+// ...
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
