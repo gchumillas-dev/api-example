@@ -2,6 +2,8 @@ This example illustrate the use of Hooks to comunicate with an API.
 
 # Stale While Revalidate (SWR)
 
+This prevents the user from seeing a "empty page" for a short period of time. But it is not always a good approach. For example, when opening a form we may not want to show the previous information.
+
 ```ts
 // File: src/providers/index.ts
 import * as store from '../store'
