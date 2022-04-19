@@ -3,6 +3,7 @@ This example illustrate the use of Hooks to comunicate with an API.
 # Stale While Revalidate (SWR)
 
 ```ts
+// File: src/providers/index.ts
 import * as store from '../store'
 
 export const useUsers = (request: Request) => {
@@ -25,6 +26,7 @@ export const useUsers = (request: Request) => {
 
 # Cached data
 ```ts
+// File: src/providers/index.ts
 import * as store from '../store'
 
 export const useTypes = (request: Request) => {
@@ -53,6 +55,7 @@ Keeping the user informed of what's going on is very important.
 That's why `useRequest` returns `loading` and `error`.
 
 ```ts
+// File: src/App.tsx
 const { request, loading, error } = useRequest()
 const { types } = useTypes(request)
 const { users, loadUsers } = useUsers(request)
